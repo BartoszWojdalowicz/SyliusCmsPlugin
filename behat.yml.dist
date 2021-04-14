@@ -13,7 +13,7 @@ default:
                 path: tests/Application/Kernel.php
                 environment: test
 
-        Lakion\Behat\MinkDebugExtension:
+        FriendsOfBehat\MinkDebugExtension:
             directory: etc/build
             clean_start: false
             screenshot: true
@@ -39,6 +39,12 @@ default:
                                     - "start-fullscreen"
                                     - "start-maximized"
                                     - "no-sandbox"
+                            extra_capabilities:
+                                acceptSslCerts: true
+                                acceptInsecureCerts: true
+                                unexpectedAlertBehaviour: accept
+                                goog:chromeOptions:
+                                    w3c: false # https://github.com/Sylius/Sylius/issues/10561
 
         FriendsOfBehat\VariadicExtension: ~
 
